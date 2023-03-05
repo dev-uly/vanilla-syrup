@@ -1,0 +1,36 @@
+{
+  "name": "vanilla-syrup",
+  "version": "1.0.0",
+  "description": "Make your vanilla-extract responsive",
+  "source": "src/index.ts",
+  "main": "dist/main.js",
+  "module": "dist/module.js",
+  "types": "dist/types.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-uly/vanilla-syrup.git"
+  },
+  "keywords": [
+    "vanilla-extract",
+    "responsive"
+  ],
+  "author": "Ulyses Edcel C. Adrales",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dev-uly/vanilla-syrup/issues"
+  },
+  "homepage": "https://github.com/dev-uly/vanilla-syrup#readme",
+  "devDependencies": {
+    "@parcel/packager-ts": "^2.8.3",
+    "@parcel/transformer-typescript-types": "^2.8.3",
+    "@vanilla-extract/parcel-transformer": "^1.0.0",
+    "parcel": "^2.8.3",
+    "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "@vanilla-extract/css": "^1.9.5"
+  }
+}
