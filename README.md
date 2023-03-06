@@ -9,7 +9,7 @@ Make your [vanilla-extract](https://vanilla-extract.style/) responsive. This is 
 
 ## Requirements
 
-Make sure that you have already [setup vanill-extract](https://vanilla-extract.style/documentation/getting-started) in your project.
+Make sure that you have already [setup vanilla-extract](https://vanilla-extract.style/documentation/getting-started) in your project.
 
 ---
 
@@ -51,7 +51,7 @@ export const { style } = createSyrup({
 **src/components/Button/button.css.ts**:
 
 ```
-import { style } from "../../vanilla-syrup.config";
+import { style } from "../../../vanilla-syrup.config";
 
 export const button = style({
   base: {
