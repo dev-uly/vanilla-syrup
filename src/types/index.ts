@@ -1,12 +1,12 @@
-import { ComplexStyleRule } from "@vanilla-extract/css";
+import { ComplexStyleRule, StyleRule } from "@vanilla-extract/css";
 
-export type ResponsiveStyle = Partial<{ [key: string]: ComplexStyleRule }>;
+export type MediaQueryStyleRule = Record<string, StyleRule>;
 
 export type ResponsiveStyleRule = {
   base: ComplexStyleRule;
-} & ResponsiveStyle;
+} & MediaQueryStyleRule;
 
-export type Breakpoints = { [key: string]: string };
+export type Breakpoints = Record<string, string>;
 
 export type CreateSyrupParams = Partial<{
   breakpoints: Breakpoints;

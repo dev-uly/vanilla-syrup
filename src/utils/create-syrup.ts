@@ -3,33 +3,38 @@ import {
   style as vanillaExtractStyle,
 } from "@vanilla-extract/css";
 import { DEFAULT_BREAKPOINTS } from "../constants";
-import { CreateSyrupParams, Breakpoints, ResponsiveStyleRule } from "../types";
+import {
+  Breakpoints,
+  CreateSyrupParams,
+  MediaQueryStyleRule,
+  ResponsiveStyleRule,
+} from "../types";
 
 export const createSyrup = ({
   breakpoints = DEFAULT_BREAKPOINTS,
   mobileFirst = true,
   mediaType = "all",
 }: CreateSyrupParams) => {
-  const screens: Breakpoints = Object.create(breakpoints);
+  const mediaQueries: Breakpoints = {};
   for (const breakpoint in breakpoints) {
-    screens[breakpoint] = `${mediaType} and (${
+    mediaQueries[breakpoint] = `${mediaType} and (${
       mobileFirst ? "min-width" : "max-width"
     }: ${breakpoints[breakpoint]})`;
   }
 
   const style = (rule: ResponsiveStyleRule) => {
-    const media: any = {};
-    for (const screen in rule) {
-      if (screen !== "base" && screens[screen]) {
-        media[screens[screen]] = rule[screen];
+    const media: MediaQueryStyleRule = {};
+    for (const breakpoint in rule) {
+      if (breakpoint !== "base" && mediaQueries[breakpoint]) {
+        media[mediaQueries[breakpoint]] = rule[breakpoint];
       }
     }
-    const result: ComplexStyleRule = {
+    const vanillaExtractStyleRule: ComplexStyleRule = {
       ...rule["base"],
       "@media": media,
     };
-    return vanillaExtractStyle(result);
+    return vanillaExtractStyle(vanillaExtractStyleRule);
   };
 
-  return { style, screens };
+  return { style, mediaQueries };
 };

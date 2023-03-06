@@ -1,7 +1,7 @@
 export type {
   CreateSyrupParams,
   Breakpoints,
-  ResponsiveStyle,
   ResponsiveStyleRule,
+  MediaQueryStyleRule,
 } from "./types";
 export { createSyrup } from "./utils";
