@@ -1,7 +1,7 @@
 {
   "name": "vanilla-syrup",
   "version": "1.0.0",
-  "description": "Make your vanilla-extract responsive",
+  "description": "A responsive wrapper for the vanilla-extract style API.",
   "source": "src/index.ts",
   "main": "dist/main.js",
   "module": "dist/module.js",
