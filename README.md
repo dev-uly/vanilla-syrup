@@ -1,6 +1,6 @@
 # vanilla-syrup 😋
 
-Make your [vanilla-extract](https://vanilla-extract.style/) responsive. This is a responsive wrapper for the [style](https://vanilla-extract.style/documentation/api/style/) API.
+Add a responsive flavor to your [vanilla-extract](https://vanilla-extract.style/) the easy way. This is a responsive wrapper for the [style](https://vanilla-extract.style/documentation/api/style/) API.
 
 🧪 Experimental
 🚧 WIP
