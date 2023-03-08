@@ -2,20 +2,20 @@ import {
   ComplexStyleRule,
   style as vanillaExtractStyle,
 } from "@vanilla-extract/css";
-import { DEFAULT_BREAKPOINTS } from "../constants";
+import Default from "../defaults";
 import {
-  Breakpoints,
   CreateSyrupParams,
+  MediaQueries,
   MediaQueryStyleRule,
   ResponsiveStyleRule,
 } from "../types";
 
 export const createSyrup = ({
-  breakpoints = DEFAULT_BREAKPOINTS,
-  mobileFirst = true,
-  mediaType = "all",
+  breakpoints = Default.BREAKPOINTS,
+  mobileFirst = Default.MOBILE_FIRST,
+  mediaType = Default.MEDIA_TYPE,
 }: CreateSyrupParams) => {
-  const mediaQueries: Breakpoints = {};
+  const mediaQueries: MediaQueries = {};
   for (const breakpoint in breakpoints) {
     mediaQueries[breakpoint] = `${mediaType} and (${
       mobileFirst ? "min-width" : "max-width"
@@ -29,10 +29,14 @@ export const createSyrup = ({
         media[mediaQueries[breakpoint]] = rule[breakpoint];
       }
     }
-    const vanillaExtractStyleRule: ComplexStyleRule = {
-      ...rule["base"],
-      "@media": media,
-    };
+    const base = rule.base;
+    const isStyleRule = !Array.isArray(base);
+    const vanillaExtractStyleRule: ComplexStyleRule = isStyleRule
+      ? {
+          ...base,
+          "@media": { ...base["@media"], ...media },
+        }
+      : [...base, { "@media": media }];
     return vanillaExtractStyle(vanillaExtractStyleRule);
   };
 

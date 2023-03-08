@@ -6,10 +6,22 @@ export type ResponsiveStyleRule = {
   base: ComplexStyleRule;
 } & MediaQueryStyleRule;
 
-export type Breakpoints = Record<string, string>;
+export type Breakpoint = `${number}${string}`;
 
-export type CreateSyrupParams = Partial<{
+export type Breakpoints = Record<string, Breakpoint>;
+
+export type MediaQuery = `${MediaType} and (${
+  | "min-width"
+  | "max-width"}: ${string})`;
+
+export type MediaQueries = Record<string, MediaQuery>;
+
+export type MediaType = "all" | "screen" | "print";
+
+export type CreateSyrupOptions = {
   breakpoints: Breakpoints;
   mobileFirst: boolean;
-  mediaType: "all" | "screen" | "print";
-}>;
+  mediaType: MediaType;
+};
+
+export type CreateSyrupParams = Partial<CreateSyrupOptions>;
