@@ -2,7 +2,7 @@ import { createSyrup } from "../utils";
 
 describe("Should return mediaQueries", () => {
   it("Undefined Options", () => {
-    const { mediaQueries } = createSyrup({});
+    const { mediaQueries } = createSyrup();
     expect(mediaQueries).toBeDefined();
     expect(mediaQueries).toStrictEqual({
       xs: "all and (min-width: 30rem)",
