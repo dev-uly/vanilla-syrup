@@ -23,5 +23,3 @@ export type CreateSyrupOptions = {
   mobileFirst: boolean;
   mediaType: MediaType;
 };
-
-export type CreateSyrupParams = Partial<CreateSyrupOptions>;

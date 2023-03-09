@@ -2,7 +2,6 @@ export type {
   Breakpoint,
   Breakpoints,
   CreateSyrupOptions,
-  CreateSyrupParams,
   MediaQuery,
   MediaQueries,
   MediaQueryStyleRule,

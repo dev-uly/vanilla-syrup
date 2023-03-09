@@ -2,20 +2,20 @@ import {
   ComplexStyleRule,
   style as vanillaExtractStyle,
 } from "@vanilla-extract/css";
-import Default from "../defaults";
+import { DEFAULT_OPTIONS } from "../defaults";
 import {
-  CreateSyrupParams,
+  CreateSyrupOptions,
   MediaQueries,
   MediaQueryStyleRule,
   ResponsiveStyleRule,
 } from "../types";
 
-export const createSyrup = ({
-  breakpoints = Default.BREAKPOINTS,
-  mobileFirst = Default.MOBILE_FIRST,
-  mediaType = Default.MEDIA_TYPE,
-}: CreateSyrupParams) => {
+export const createSyrup = (options?: Partial<CreateSyrupOptions>) => {
+  const breakpoints = options?.breakpoints ?? DEFAULT_OPTIONS.breakpoints;
+  const mediaType = options?.mediaType ?? DEFAULT_OPTIONS.mediaType;
+  const mobileFirst = options?.mobileFirst ?? DEFAULT_OPTIONS.mobileFirst;
   const mediaQueries: MediaQueries = {};
+
   for (const breakpoint in breakpoints) {
     mediaQueries[breakpoint] = `${mediaType} and (${
       mobileFirst ? "min-width" : "max-width"

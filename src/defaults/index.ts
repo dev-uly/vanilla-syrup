@@ -1,17 +1,19 @@
-import { Breakpoints, MediaType } from "../types";
+import { Breakpoints, CreateSyrupOptions, MediaType } from "../types";
 
-namespace Default {
-  export const BREAKPOINTS: Breakpoints = {
-    xs: "30rem",
-    sm: "48rem",
-    md: "62rem",
-    lg: "80rem",
-    xl: "96rem",
-  };
+const BREAKPOINTS: Breakpoints = {
+  xs: "30rem",
+  sm: "48rem",
+  md: "62rem",
+  lg: "80rem",
+  xl: "96rem",
+};
 
-  export const MOBILE_FIRST: boolean = true;
+const MOBILE_FIRST = true;
 
-  export const MEDIA_TYPE: MediaType = "all";
-}
+const MEDIA_TYPE: MediaType = "all";
 
-export default Default;
+export const DEFAULT_OPTIONS: CreateSyrupOptions = {
+  breakpoints: BREAKPOINTS,
+  mobileFirst: MOBILE_FIRST,
+  mediaType: MEDIA_TYPE,
+};
