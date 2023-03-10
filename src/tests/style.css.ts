@@ -1,22 +1,24 @@
+/* istanbul ignore file */
+
 import { style } from "./vanilla-syrup.config";
 
 export const box = style({
   base: {
     backgroundColor: "red",
   },
-  xs: {
+  "@xs": {
     backgroundColor: "orange",
   },
-  sm: {
+  "@sm": {
     backgroundColor: "yellow",
   },
-  md: {
+  "@md": {
     backgroundColor: "green",
   },
-  lg: {
+  "@lg": {
     backgroundColor: "blue",
   },
-  xl: {
+  "@xl": {
     backgroundColor: "violet",
   },
 });

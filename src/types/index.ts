@@ -1,6 +1,6 @@
 import { ComplexStyleRule, StyleRule } from "@vanilla-extract/css";
 
-export type MediaQueryStyleRule = Record<string, StyleRule>;
+export type MediaQueryStyleRule = Record<`@${string}`, StyleRule>;
 
 export type ResponsiveStyleRule = {
   base: ComplexStyleRule;
@@ -18,8 +18,10 @@ export type MediaQueries = Record<string, MediaQuery>;
 
 export type MediaType = "all" | "screen" | "print";
 
-export type CreateSyrupOptions = {
+export type CreateMediaQueriesOptions = {
   breakpoints: Breakpoints;
   mobileFirst: boolean;
   mediaType: MediaType;
 };
+
+export type CreateSyrupOptions = Partial<CreateMediaQueriesOptions>;

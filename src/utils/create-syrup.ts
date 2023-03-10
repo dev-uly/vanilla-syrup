@@ -1,43 +1,28 @@
-import {
-  ComplexStyleRule,
-  style as vanillaExtractStyle,
-} from "@vanilla-extract/css";
+import { style as vanillaExtractStyle } from "@vanilla-extract/css";
 import { DEFAULT_OPTIONS } from "../defaults";
 import {
   CreateSyrupOptions,
   MediaQueries,
-  MediaQueryStyleRule,
   ResponsiveStyleRule,
 } from "../types";
+import { createComplexStyleRule } from "./create-complex-style-rule";
+import { createMediaQueries } from "./create-media-queries";
 
-export const createSyrup = (options?: Partial<CreateSyrupOptions>) => {
-  const breakpoints = options?.breakpoints ?? DEFAULT_OPTIONS.breakpoints;
-  const mediaType = options?.mediaType ?? DEFAULT_OPTIONS.mediaType;
-  const mobileFirst = options?.mobileFirst ?? DEFAULT_OPTIONS.mobileFirst;
-  const mediaQueries: MediaQueries = {};
+export const createSyrup = (options?: CreateSyrupOptions) => {
+  const { breakpoints, mediaType, mobileFirst } = {
+    ...DEFAULT_OPTIONS,
+    ...options,
+  };
 
-  for (const breakpoint in breakpoints) {
-    mediaQueries[breakpoint] = `${mediaType} and (${
-      mobileFirst ? "min-width" : "max-width"
-    }: ${breakpoints[breakpoint]})`;
-  }
+  const mediaQueries: MediaQueries = createMediaQueries({
+    breakpoints: breakpoints,
+    mediaType: mediaType,
+    mobileFirst: mobileFirst,
+  });
 
   const style = (rule: ResponsiveStyleRule) => {
-    const media: MediaQueryStyleRule = {};
-    for (const breakpoint in rule) {
-      if (breakpoint !== "base" && mediaQueries[breakpoint]) {
-        media[mediaQueries[breakpoint]] = rule[breakpoint];
-      }
-    }
-    const base = rule.base;
-    const isStyleRule = !Array.isArray(base);
-    const vanillaExtractStyleRule: ComplexStyleRule = isStyleRule
-      ? {
-          ...base,
-          "@media": { ...base["@media"], ...media },
-        }
-      : [...base, { "@media": media }];
-    return vanillaExtractStyle(vanillaExtractStyleRule);
+    const complexStyleRule = createComplexStyleRule(rule, mediaQueries);
+    return vanillaExtractStyle(complexStyleRule);
   };
 
   return { style, mediaQueries };

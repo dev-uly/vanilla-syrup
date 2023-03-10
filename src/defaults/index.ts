@@ -1,4 +1,4 @@
-import { Breakpoints, CreateSyrupOptions, MediaType } from "../types";
+import { Breakpoints, CreateMediaQueriesOptions, MediaType } from "../types";
 
 const BREAKPOINTS: Breakpoints = {
   xs: "30rem",
@@ -12,7 +12,7 @@ const MOBILE_FIRST = true;
 
 const MEDIA_TYPE: MediaType = "all";
 
-export const DEFAULT_OPTIONS: CreateSyrupOptions = {
+export const DEFAULT_OPTIONS: CreateMediaQueriesOptions = {
   breakpoints: BREAKPOINTS,
   mobileFirst: MOBILE_FIRST,
   mediaType: MEDIA_TYPE,
