@@ -1,4 +1,4 @@
-import { createSyrup } from "../utils";
+import { createSyrup } from "../src/utils";
 
 describe("Should return mediaQueries", () => {
   it("Undefined Options", () => {

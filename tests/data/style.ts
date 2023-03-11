@@ -1,8 +1,8 @@
 /* istanbul ignore file */
 
-import { style } from "./vanilla-syrup.config";
+import { ResponsiveStyleRule } from "../../src/types";
 
-export const box = style({
+export const responsiveStyleRule: ResponsiveStyleRule = {
   base: {
     backgroundColor: "red",
   },
@@ -21,4 +21,4 @@ export const box = style({
   "@xl": {
     backgroundColor: "violet",
   },
-});
+};

@@ -1,6 +1,6 @@
 import { ComplexStyleRule } from "@vanilla-extract/css";
-import { ResponsiveStyleRule } from "../types";
-import { createComplexStyleRule, createSyrup } from "../utils";
+import { ResponsiveStyleRule } from "../src/types";
+import { createSyrup, createComplexStyleRule } from "../src/utils";
 
 describe("Should return ComplexStyleRule", () => {
   const { mediaQueries } = createSyrup();

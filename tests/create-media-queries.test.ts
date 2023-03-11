@@ -1,5 +1,5 @@
-import { DEFAULT_OPTIONS } from "../defaults";
-import { createMediaQueries } from "../utils";
+import { DEFAULT_OPTIONS } from "../src/defaults";
+import { createMediaQueries } from "../src/utils";
 
 describe("Should return mediaQueries", () => {
   const mediaQueries = createMediaQueries(DEFAULT_OPTIONS);
