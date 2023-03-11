@@ -8,7 +8,8 @@
   "types": "dist/types.d.ts",
   "scripts": {
     "lint": "eslint .",
-    "test": "jest --coverage",
+    "test": "jest",
+    "coverage": "jest --coverage",
     "type-check": "tsc --noEmit",
     "build": "parcel build"
   },
@@ -48,5 +49,11 @@
   },
   "peerDependencies": {
     "@vanilla-extract/css": "^1.9.5"
-  }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ]
 }

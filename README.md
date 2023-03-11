@@ -7,7 +7,7 @@ Add a responsive flavor to your [vanilla-extract](https://vanilla-extract.style/
 
 ---
 
-## Requirements
+## Prerequisite
 
 Make sure that you have already [setup vanilla-extract](https://vanilla-extract.style/documentation/getting-started) in your project.
 
@@ -57,19 +57,19 @@ export const button = style({
   base: {
     backgroundColor: "red",
   },
-  xs: {
+  "@xs": {
     backgroundColor: "orange",
   },
-  sm: {
+  "@sm": {
     backgroundColor: "yellow",
   },
-  md: {
+  "@md": {
     backgroundColor: "green",
   },
-  lg: {
+  "@lg": {
     backgroundColor: "blue",
   },
-  xl: {
+  "@xl": {
     backgroundColor: "violet",
   },
 });
